@@ -30,3 +30,7 @@ Contributions are welcome! Feel free to open issues or pull requests. However, k
 ## License
 
 This project is licensed under the [Apache License 2.0](LICENSE). See the [LICENSE](LICENSE) file for more details.
+
+---
+
+**Note**: This project is provided "as is", with no guarantees of any kind. Use at your own risk.
