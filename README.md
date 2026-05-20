@@ -4,6 +4,21 @@
 
 **Sharlene** is a command-line tool (CLI) designed to patch the bytecode of **Charles Proxy**. It allows you to locally modify Charles Proxy's behavior on your machine without distributing original or modified copies of the software.
 
+```
+Sharlene is a powerful patcher for Charles Proxy.
+
+Usage: sharlene [-h | -V] ([-i=<jarfile>] -o=<jarfile> [-w])
+
+General Options:
+  -h, --help               Display this help information and exit
+  -V, --version            Display program version and exit
+
+File Options:
+  -i, --input=<jarfile>    Input for original charles JAR file path
+  -o, --output=<jarfile>   Output for patched charles JAR file path
+  -w, --overwrite          Overwrite the output file
+```
+
 ## Disclaimer
 
 1. This repository will never distribute original or modified copies of Charles Proxy.
