@@ -6,6 +6,15 @@ plugins {
 group = properties["projectGroup"] as String
 version = properties["projectVersion"] as String
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.apache.logging.log4j:log4j-api:2.12.4")
+    implementation("org.apache.logging.log4j:log4j-core:2.12.4")
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
