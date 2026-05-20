@@ -17,3 +17,7 @@ tasks.jar {
         attributes["Implementation-Version"] = project.version
     }
 }
+
+tasks.named<Javadoc>("javadoc") {
+    options.memberLevel = JavadocMemberLevel.PRIVATE
+}
