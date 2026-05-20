@@ -22,3 +22,7 @@ It's important to note that **I didn't contact Charles Proxy maintainers**, as i
 ## Requirements
 
 - Java 21 or higher
+
+## Contributions
+
+Contributions are welcome! Feel free to open issues or pull requests. However, keep in mind the disclaimers and the purpose of this tool.
