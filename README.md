@@ -26,3 +26,7 @@ It's important to note that **I didn't contact Charles Proxy maintainers**, as i
 ## Contributions
 
 Contributions are welcome! Feel free to open issues or pull requests. However, keep in mind the disclaimers and the purpose of this tool.
+
+## License
+
+This project is licensed under the [Apache License 2.0](LICENSE). See the [LICENSE](LICENSE) file for more details.
