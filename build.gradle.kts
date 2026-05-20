@@ -10,3 +10,10 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "${project.group}.Main"
+        attributes["Implementation-Version"] = project.version
+    }
+}
