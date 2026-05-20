@@ -1,5 +1,6 @@
 plugins {
     java
+    id("com.gradleup.shadow") version "9.3.0"
 }
 
 group = properties["projectGroup"] as String
@@ -16,6 +17,10 @@ tasks.jar {
         attributes["Main-Class"] = "${project.group}.Main"
         attributes["Implementation-Version"] = project.version
     }
+}
+
+tasks.shadowJar {
+    mergeServiceFiles()
 }
 
 tasks.named<Javadoc>("javadoc") {
