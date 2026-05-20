@@ -12,3 +12,9 @@
 4. You modify Charles Proxy at your own will and absolve me of any responsibility, including:
    - Legal issues caused by modifying and/or distributing the software.
    - Bugs or security flaws resulting from using this tool.
+
+## Clarifications and Motivations
+
+**Charles Proxy** is an amazing tool, without a doubt the best among all proxy debugging tools I've tested. However, since it's closed-source software, we depend entirely on the maintainers to implement changes. This process can be slow or even result in rejection.
+
+It's important to note that **I didn't contact Charles Proxy maintainers**, as it's obvious they wouldn't authorize or encourage patching their software.
