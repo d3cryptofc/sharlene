@@ -58,7 +58,10 @@ public class SharleneCommand implements Callable<Integer> {
          this.fileOptionsSection.inputFile
       );
       // Get the output file.
-      File outputFile = this.fileOptionsSection.outputFile;
+      File outputFile = OutputFileValidator.orAddFileNameIfIsDirectory(
+         this.fileOptionsSection.outputFile
+      );
+      // Get the overwrite flag.
       Boolean canOverwriteOutputFile =
          this.fileOptionsSection.canOverwriteOutputFile;
 
