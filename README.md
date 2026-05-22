@@ -2,7 +2,7 @@
   <a href="."><img alt="Sharlene Logo" src="https://gist.githubusercontent.com/d3cryptofc/83ab5ce9be9f311dbca82e2f9ba88f54/raw/534dfa189a62a9620263dad01cb85c64a447157e/sharlene-plain.svg" width="200"></a>
 </p>
 
-[![License](https://img.shields.io/badge/license-Apache_2.0-blue?style=flat-square&color=orange)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache_2.0-green?style=flat-square)](LICENSE)
 
 # Sharlene
 
