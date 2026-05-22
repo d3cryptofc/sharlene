@@ -8,6 +8,13 @@ import picocli.CommandLine.Option;
 public class GeneralOptionsSection {
 
    /**
+    * Constructs a new {@code GeneralOptionsSection} instance.
+    */
+   public GeneralOptionsSection() {
+      super();
+   }
+
+   /**
     * Stores {@code true} when the help flag is used.
     */
    @Option(

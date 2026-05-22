@@ -9,6 +9,13 @@ import picocli.CommandLine.Option;
 public class FileOptionsSection {
 
    /**
+    * Constructs a new {@code FileOptionsSection} instance.
+    */
+   public FileOptionsSection() {
+      super();
+   }
+
+   /**
     * Stores the input file path.
     */
    @Option(

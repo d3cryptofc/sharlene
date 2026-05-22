@@ -9,7 +9,14 @@ import com.github.d3cryptofc.sharlene.exception.UnsupportedOSException;
 public class CharlesJarPathProvider {
 
    /**
+    * Private constructor to prevent instantiation.
+    */
+   private CharlesJarPathProvider() {}
+
+   /**
     * Gets the default charles JAR file path for the current operating system.
+    *
+    * @return The default charles JAR file path for the current operating system.
     *
     * @throws UnsupportedOSException   If the current operating system is not supported
     *                                  or cannot be detected.

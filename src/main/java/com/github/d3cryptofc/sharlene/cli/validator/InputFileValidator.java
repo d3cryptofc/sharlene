@@ -12,6 +12,11 @@ import java.io.File;
 public class InputFileValidator {
 
    /**
+    * Private constructor to prevent instantiation.
+    */
+   private InputFileValidator() {}
+
+   /**
     * Returns the input file if it is not null, otherwise returns the
     * default {@code 'charles.jar'} file.
     *

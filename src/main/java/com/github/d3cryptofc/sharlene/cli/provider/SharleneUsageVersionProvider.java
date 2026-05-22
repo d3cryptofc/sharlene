@@ -9,8 +9,16 @@ import picocli.CommandLine.Spec;
  */
 public class SharleneUsageVersionProvider implements IVersionProvider {
 
+   /**
+    * Injected by picocli to provide the command spec.
+    */
    @Spec
    CommandSpec spec;
+
+   /**
+    * Constructs a new {@code SharleneUsageVersionProvider} instance.
+    */
+   public SharleneUsageVersionProvider() {}
 
    /**
     * Gets the current program usage version (for example: {@code Program v1.x.y}).

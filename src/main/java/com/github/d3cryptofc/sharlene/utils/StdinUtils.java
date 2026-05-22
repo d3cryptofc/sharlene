@@ -13,6 +13,11 @@ public class StdinUtils {
    private static final Scanner scanner = new Scanner(System.in);
 
    /**
+    * Private constructor to prevent instantiation.
+    */
+   private StdinUtils() {}
+
+   /**
     * Reads a formatted string from the standard input stream.
     *
     * @param format The format string.

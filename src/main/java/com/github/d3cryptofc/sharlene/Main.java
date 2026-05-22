@@ -25,6 +25,11 @@ public class Main {
    public static final String OSNAME = System.getProperty("os.name");
 
    /**
+    * Private constructor to prevent instantiation.
+    */
+   private Main() {}
+
+   /**
     * Program entrypoint that executes the CLI.
     *
     * @param args  Command line arguments.
@@ -38,6 +43,8 @@ public class Main {
 
    /**
     * Creates a configured {@code CommandLine} instance.
+    *
+    * @return  The configured {@code CommandLine} instance.
     */
    private static CommandLine createCommandLine() {
       // Create color scheme to the CLI help usage.
@@ -55,6 +62,8 @@ public class Main {
 
    /**
     * Creates the color scheme to the CLI help usage.
+    *
+    * @return  The color scheme to the CLI help usage.
     */
    private static ColorScheme createColorScheme() {
       // Build a color scheme to the CLI help usage.
@@ -68,6 +77,8 @@ public class Main {
 
    /**
     * Creates the exception handler insttance to the CLI.
+    *
+    * @return  The exception handler instance to the CLI.
     */
    private static IExecutionExceptionHandler createExceptionHandler() {
       return (e, c, p) -> {

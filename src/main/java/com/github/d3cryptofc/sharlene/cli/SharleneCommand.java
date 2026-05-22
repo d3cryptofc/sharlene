@@ -38,6 +38,11 @@ public class SharleneCommand implements Callable<Integer> {
    private FileOptionsSection fileOptionsSection;
 
    /**
+    * Constructs a new {@code SharleneCommand} instance.
+    */
+   public SharleneCommand() {}
+
+   /**
     * Called when command line parsing is complete.
     */
    @Override

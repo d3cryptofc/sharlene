@@ -13,6 +13,11 @@ public class LogUtils {
    private static final int SEPARATOR_WIDTH = 60;
 
    /**
+    * Private constructor to prevent instantiation.
+    */
+   private LogUtils() {}
+
+   /**
     * Logs a section separator using the given logger.
     *
     * @param logger The logger to use for logging.
