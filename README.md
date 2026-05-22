@@ -23,7 +23,7 @@ File Options:
   -w, --overwrite          Overwrite the output file
 ```
 
-## Disclaimer
+## ⚠︎ Disclaimer
 
 1. This repository will never distribute original or modified copies of Charles Proxy.
 2. This tool modifies the program at the bytecode level locally on your machine.
@@ -32,21 +32,21 @@ File Options:
    - Legal issues caused by modifying and/or distributing the software.
    - Bugs or security flaws resulting from using this tool.
 
-## Clarifications and Motivations
+## 💡 Clarifications & Motivations
 
 **Charles Proxy** is an amazing tool, without a doubt the best among all proxy debugging tools I've tested. However, since it's closed-source software, we depend entirely on the maintainers to implement changes. This process can be slow or even result in rejection.
 
 It's important to note that **I didn't contact Charles Proxy maintainers**, as it's obvious they wouldn't authorize or encourage patching their software.
 
-## Requirements
+## ⚙️ Requirements
 
 - Java 21 or higher
 
-## Contributions
+## 🎁 Contributions
 
 Contributions are welcome! Feel free to open issues or pull requests. However, keep in mind the disclaimers and the purpose of this tool.
 
-## License
+## ⚖️ License
 
 This project is licensed under the [Apache License 2.0](LICENSE). See the [LICENSE](LICENSE) file for more details.
 
