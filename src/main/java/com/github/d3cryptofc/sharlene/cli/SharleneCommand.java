@@ -4,6 +4,9 @@ import com.github.d3cryptofc.sharlene.Main;
 import com.github.d3cryptofc.sharlene.cli.provider.SharleneUsageVersionProvider;
 import com.github.d3cryptofc.sharlene.cli.section.FileOptionsSection;
 import com.github.d3cryptofc.sharlene.cli.section.GeneralOptionsSection;
+import com.github.d3cryptofc.sharlene.cli.validator.InputFileValidator;
+import com.github.d3cryptofc.sharlene.utils.LogUtils;
+import java.io.File;
 import java.util.concurrent.Callable;
 import picocli.CommandLine.ArgGroup;
 import picocli.CommandLine.Command;
@@ -41,6 +44,22 @@ public class SharleneCommand implements Callable<Integer> {
    public Integer call() {
       // Log the operating system name.
       Main.LOGGER.info("OS: {}", Main.OSNAME);
+
+      // Validate the input file and ensure it is the default Charles JAR file.
+      File inputFile = InputFileValidator.orEnsureDefaultCharlesJarFile(
+         this.fileOptionsSection.inputFile
+      );
+      // Get the output file.
+      File outputFile = this.fileOptionsSection.outputFile;
+
+      // Log the input and output file paths.
+      LogUtils.section(Main.LOGGER, () -> {
+         Main.LOGGER.info("Input JAR: {}", inputFile.getPath());
+         Main.LOGGER.info("Output JAR: {}", outputFile.getPath());
+      });
+
+      // Validate the input file is a Charles JAR file.
+      InputFileValidator.checkIsCharlesJarFile(inputFile);
 
       return 0;
    }
