@@ -5,7 +5,10 @@ import com.github.d3cryptofc.sharlene.cli.provider.SharleneUsageVersionProvider;
 import com.github.d3cryptofc.sharlene.cli.section.FileOptionsSection;
 import com.github.d3cryptofc.sharlene.cli.section.GeneralOptionsSection;
 import com.github.d3cryptofc.sharlene.cli.validator.InputFileValidator;
+import com.github.d3cryptofc.sharlene.cli.validator.OutputFileValidator;
+import com.github.d3cryptofc.sharlene.exception.UserAbortException;
 import com.github.d3cryptofc.sharlene.utils.LogUtils;
+import com.github.d3cryptofc.sharlene.utils.StdinUtils;
 import java.io.File;
 import java.util.concurrent.Callable;
 import picocli.CommandLine.ArgGroup;
@@ -56,6 +59,8 @@ public class SharleneCommand implements Callable<Integer> {
       );
       // Get the output file.
       File outputFile = this.fileOptionsSection.outputFile;
+      Boolean canOverwriteOutputFile =
+         this.fileOptionsSection.canOverwriteOutputFile;
 
       // Log the input and output file paths.
       LogUtils.section(Main.LOGGER, () -> {
@@ -66,6 +71,17 @@ public class SharleneCommand implements Callable<Integer> {
       // Validate the input file is a Charles JAR file.
       InputFileValidator.checkIsCharlesJarFile(inputFile);
 
+      // Check if the output file already exists and prompt the user to confirm overwriting if necessary.
+      if (
+         !canOverwriteOutputFile &&
+         OutputFileValidator.checkFileAlreadyExists(outputFile) &&
+         !Boolean.TRUE.equals(StdinUtils.confirm("Overwrite? [y/N]: "))
+      ) {
+         // Throw an exception if the user does not confirm overwriting.
+         throw new UserAbortException();
+      }
+
+      // Return success exit code.
       return 0;
    }
 }
