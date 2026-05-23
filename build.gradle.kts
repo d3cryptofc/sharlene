@@ -38,15 +38,24 @@ tasks.compileJava {
     options.compilerArgs.add("-Aproject=${project.group}/${project.name}")
 }
 
+fun Jar.includeLicenses() {
+    from("LICENSE") { into("") }
+    from("NOTICE") { into("") }
+    from("LICENSES") { into("LICENSES") }
+}
+
 tasks.jar {
     manifest {
         attributes["Main-Class"] = "${project.group}.Main"
         attributes["Implementation-Version"] = project.version
     }
+
+    includeLicenses()
 }
 
 tasks.shadowJar {
     mergeServiceFiles()
+    includeLicenses()
 }
 
 tasks.named<Javadoc>("javadoc") {
