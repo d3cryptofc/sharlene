@@ -97,10 +97,11 @@ public class CharlesJarFile implements AutoCloseable {
   }
 
   /**
-   * Walks over the entries in the JAR file and copies them to the destination JAR file using the provided processors.
+   * Walks over the entries in the JAR file and copies them to the destination JAR file using the
+   * provided processors.
    *
-   * @param destination         The destination JAR file.
-   * @param walkCopyProcessors  The processors to use for copying each entry.
+   * @param destination The destination JAR file.
+   * @param walkCopyProcessors The processors to use for copying each entry.
    */
   public void walkCopy(File destination, Collection<WalkCopyProcessor> walkCopyProcessors) {
     // Log the start of the JAR walking copy.

@@ -14,8 +14,8 @@ public class WalkCopyProcessor {
    * Accepts a JAR entry and returns its contents as a byte array.
    *
    * @param charlesJarFile The Charles JAR file being processed.
-   * @param entry          The JAR entry to process.
-   * @return               The contents of the JAR entry as a byte array.
+   * @param entry The JAR entry to process.
+   * @return The contents of the JAR entry as a byte array.
    */
   public byte[] accept(CharlesJarFile charlesJarFile, ZipEntry entry) {
     try (
