@@ -30,6 +30,10 @@ spotless {
     }
 }
 
+tasks.withType<JavaCompile>().configureEach {
+    finalizedBy("spotlessApply")
+}
+
 tasks.compileJava {
     options.compilerArgs.add("-Aproject=${project.group}/${project.name}")
 }
