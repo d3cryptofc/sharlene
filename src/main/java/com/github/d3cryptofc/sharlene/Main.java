@@ -9,89 +9,81 @@ import picocli.CommandLine.Help.Ansi.Style;
 import picocli.CommandLine.Help.ColorScheme;
 import picocli.CommandLine.IExecutionExceptionHandler;
 
-/**
- * The main program class.
- */
+/** The main program class. */
 public class Main {
 
-   /**
-    * Global object logger.
-    */
-   public static final Logger LOGGER = LogManager.getLogger(Main.class);
+  /** Global object logger. */
+  public static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-   /**
-    * Operating system name.
-    */
-   public static final String OSNAME = System.getProperty("os.name");
+  /** Operating system name. */
+  public static final String OSNAME = System.getProperty("os.name");
 
-   /**
-    * Private constructor to prevent instantiation.
-    */
-   private Main() {}
+  /** Private constructor to prevent instantiation. */
+  private Main() {}
 
-   /**
-    * Program entrypoint that executes the CLI.
-    *
-    * @param args  Command line arguments.
-    */
-   public static void main(String[] args) {
-      // Execute CLI and get exit code.
-      int exitcode = createCommandLine().execute(args);
-      // Exit program with the exit code.
-      System.exit(exitcode);
-   }
+  /**
+   * Program entrypoint that executes the CLI.
+   *
+   * @param args Command line arguments.
+   */
+  public static void main(String[] args) {
+    // Execute CLI and get exit code.
+    int exitcode = createCommandLine().execute(args);
+    // Exit program with the exit code.
+    System.exit(exitcode);
+  }
 
-   /**
-    * Creates a configured {@code CommandLine} instance.
-    *
-    * @return  The configured {@code CommandLine} instance.
-    */
-   private static CommandLine createCommandLine() {
-      // Create color scheme to the CLI help usage.
-      ColorScheme colorScheme = createColorScheme();
-      // Create exception handler to handle exceptions.
-      IExecutionExceptionHandler exceptionHandler = createExceptionHandler();
+  /**
+   * Creates a configured {@code CommandLine} instance.
+   *
+   * @return The configured {@code CommandLine} instance.
+   */
+  private static CommandLine createCommandLine() {
+    // Create color scheme to the CLI help usage.
+    ColorScheme colorScheme = createColorScheme();
+    // Create exception handler to handle exceptions.
+    IExecutionExceptionHandler exceptionHandler = createExceptionHandler();
 
-      // Create the CommandLine object.
-      return new CommandLine(new SharleneCommand())
-         // Set the CLI help usage color scheme
-         .setColorScheme(colorScheme)
-         // Set the CLI exception handler.
-         .setExecutionExceptionHandler(exceptionHandler);
-   }
+    // Create the CommandLine object.
+    return new CommandLine(new SharleneCommand())
+        // Set the CLI help usage color scheme
+        .setColorScheme(colorScheme)
+        // Set the CLI exception handler.
+        .setExecutionExceptionHandler(exceptionHandler);
+  }
 
-   /**
-    * Creates the color scheme to the CLI help usage.
-    *
-    * @return  The color scheme to the CLI help usage.
-    */
-   private static ColorScheme createColorScheme() {
-      // Build a color scheme to the CLI help usage.
-      return new ColorScheme.Builder()
-         .commands(Style.bold)
-         .options(Style.bold, Style.fg_magenta)
-         .optionParams(Style.italic)
-         .errors(Style.bold, Style.fg_red)
-         .build();
-   }
+  /**
+   * Creates the color scheme to the CLI help usage.
+   *
+   * @return The color scheme to the CLI help usage.
+   */
+  private static ColorScheme createColorScheme() {
+    // Build a color scheme to the CLI help usage.
+    return new ColorScheme.Builder()
+        .commands(Style.bold)
+        .options(Style.bold, Style.fg_magenta)
+        .optionParams(Style.italic)
+        .errors(Style.bold, Style.fg_red)
+        .build();
+  }
 
-   /**
-    * Creates the exception handler insttance to the CLI.
-    *
-    * @return  The exception handler instance to the CLI.
-    */
-   private static IExecutionExceptionHandler createExceptionHandler() {
-      return (e, c, p) -> {
-         // Always displays the exception message.
-         LOGGER.error(e.getMessage());
+  /**
+   * Creates the exception handler insttance to the CLI.
+   *
+   * @return The exception handler instance to the CLI.
+   */
+  private static IExecutionExceptionHandler createExceptionHandler() {
+    return (e, c, p) -> {
+      // Always displays the exception message.
+      LOGGER.error(e.getMessage());
 
-         // When is a unexpected exception.
-         if (!(e instanceof SharleneRuntimeException)) {
-            // Display the stack trace.
-            e.printStackTrace();
-         }
+      // When is a unexpected exception.
+      if (!(e instanceof SharleneRuntimeException)) {
+        // Display the stack trace.
+        e.printStackTrace();
+      }
 
-         return 1;
-      };
-   }
+      return 1;
+    };
+  }
 }
