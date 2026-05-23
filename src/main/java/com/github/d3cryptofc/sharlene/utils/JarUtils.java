@@ -32,7 +32,7 @@ public class JarUtils {
     } catch (IOException e) {
       // Throw a runtime exception if an error occurs while opening the JAR.
       throw new SharleneRuntimeException(
-          "An error occurred while opening the JAR: " + e.getMessage());
+          "An error occurred while opening the JAR: %s", e.getMessage());
     }
   }
 
@@ -50,7 +50,7 @@ public class JarUtils {
       jarFile.close();
     } catch (IOException e) {
       // Throw a runtime exception if an error occurs while closing the JAR.
-      throw new SharleneRuntimeException("Failed to close JAR file: " + e.getMessage());
+      throw new SharleneRuntimeException("Failed to close JAR file: %s", e.getMessage());
     }
   }
 
@@ -73,7 +73,7 @@ public class JarUtils {
     if (entry != null) return entry;
 
     // Otherwise, throw an exception.
-    throw new SharleneRuntimeException("JAR entry not found: " + name);
+    throw new SharleneRuntimeException("JAR entry not found: %s", name);
   }
 
   /**
@@ -98,7 +98,7 @@ public class JarUtils {
     } catch (IOException e) {
       // Throw a runtime exception if the properties could not be read.
       throw new SharleneRuntimeException(
-          "Failed to read properties from JAR entry:" + e.getMessage());
+          "Failed to read properties from JAR entry: %s", e.getMessage());
     }
 
     // Return the properties object.

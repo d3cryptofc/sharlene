@@ -142,7 +142,7 @@ public class CharlesJarFile implements AutoCloseable {
       }
     } catch (IOException e) {
       // Throw a `SharleneRuntimeException` if an I/O error occurs.
-      throw new SharleneRuntimeException("Failed to open JAR output stream: " + e.getMessage());
+      throw new SharleneRuntimeException("Failed to open JAR output stream: %s", e.getMessage());
     }
   }
 }
