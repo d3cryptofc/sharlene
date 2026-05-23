@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="."><img alt="Sharlene Logo" src="https://gist.githubusercontent.com/d3cryptofc/83ab5ce9be9f311dbca82e2f9ba88f54/raw/534dfa189a62a9620263dad01cb85c64a447157e/sharlene-plain.svg" width="200"></a>
+  <a href="."><img alt="Sharlene Logo" src="https://gist.githubusercontent.com/d3cryptofc/83ab5ce9be9f311dbca82e2f9ba88f54/raw/66652bd4b9727066a34140584f67de3de95a2427/sharlene-plain.svg" width="200"></a>
 </p>
 
 [![License](https://img.shields.io/badge/license-Apache_2.0-green?style=square)](LICENSE)
