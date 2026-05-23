@@ -114,14 +114,18 @@ public class CharlesJarFile implements AutoCloseable {
     // Initialize the `content` variable to an empty byte array.
     byte[] content = new byte[0];
 
-    // If no walk copy processors are provided, use a default one.
-    if (walkCopyProcessors.size() == 0) {
-      walkCopyProcessors = Collections.singletonList(new WalkCopyProcessor());
-    }
-
     try (
     // Create a `JarOutputStream` to write the output JAR file.
     JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(destination))) {
+      // If no walk copy processors are provided and there are entries to process, use a default
+      // one.
+      if (walkCopyProcessors.size() == 0 && entries.hasMoreElements()) {
+        // Log the use of the default walk copy processor.
+        Main.LOGGER.debug("Using default walk copy processor.");
+        // Wrap the default walk copy processor in a singleton list.
+        walkCopyProcessors = Collections.singletonList(new WalkCopyProcessor());
+      }
+
       // Iterate over the entries in the JAR file.
       while (entries.hasMoreElements()) {
         // Get the next entry from the JAR file.
