@@ -7,6 +7,7 @@ import com.github.d3cryptofc.sharlene.cli.section.GeneralOptionsSection;
 import com.github.d3cryptofc.sharlene.cli.validator.InputFileValidator;
 import com.github.d3cryptofc.sharlene.cli.validator.OutputFileValidator;
 import com.github.d3cryptofc.sharlene.exception.UserAbortException;
+import com.github.d3cryptofc.sharlene.io.CharlesJarFile;
 import com.github.d3cryptofc.sharlene.utils.LogUtils;
 import com.github.d3cryptofc.sharlene.utils.StdinUtils;
 import java.io.File;
@@ -82,6 +83,14 @@ public class SharleneCommand implements Callable<Integer> {
       ) {
          // Throw an exception if the user does not confirm overwriting.
          throw new UserAbortException();
+      }
+
+      // Load the Charles JAR file and close it automatically.
+      try (CharlesJarFile charlesJarFile = new CharlesJarFile(inputFile)) {
+         // Get the Charles version from the JAR file.
+         String charlesVersion = charlesJarFile.getCharlesVersion();
+         // Log the Charles version.
+         Main.LOGGER.info("Loaded: Charles Proxy {}", charlesVersion);
       }
 
       // Return success exit code.
