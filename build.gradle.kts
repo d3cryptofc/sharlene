@@ -1,6 +1,7 @@
 plugins {
     java
     id("com.gradleup.shadow") version "9.3.0"
+    id("com.diffplug.spotless") version "7.2.1"
 }
 
 group = properties["projectGroup"] as String
@@ -20,6 +21,12 @@ dependencies {
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+spotless {
+    java {
+        googleJavaFormat()
     }
 }
 
